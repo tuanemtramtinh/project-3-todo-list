@@ -107,6 +107,8 @@ module.exports.createPost = async (req, res) => {
     const content = req.body.content;
     let timeStart = req.body.timeStart;
     const timeFinish = req.body.timeFinish;
+    const listUser = req.body.listUser;
+    const createdBy = req.user.id;
 
     if (!timeStart) {
       timeStart = new Date();
@@ -117,6 +119,8 @@ module.exports.createPost = async (req, res) => {
       content,
       timeStart,
       timeFinish,
+      createdBy,
+      listUser,
     };
 
     const newTask = new Task(data);
